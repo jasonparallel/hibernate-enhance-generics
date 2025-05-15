@@ -1,12 +1,14 @@
 package org.hibernate.bugs;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import java.util.List;
+import model.Actor;
+import model.ActorAka;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * This template demonstrates how to develop a test case for Hibernate ORM, using the Java Persistence API.
@@ -31,7 +33,14 @@ class JPAUnitTestCase {
 	void hhh123Test() throws Exception {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
-		// Do stuff...
+
+
+
+        Actor actor = new Actor();
+        actor.setId(7L);
+        ActorAka actorAka = new ActorAka();
+        actor.setActorAkas(List.of(actorAka));
+
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}

@@ -1,9 +1,11 @@
 package org.hibernate.bugs;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
+import model.Actor;
+import model.ActorAka;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +33,12 @@ public class JPAUnitTestCase {
 	public void hhh123Test() throws Exception {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
-		// Do stuff...
+
+        Actor actor = new Actor();
+        actor.setId(7L);
+        ActorAka actorAka = new ActorAka();
+        actor.setActorAkas(List.of(actorAka));
+
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
