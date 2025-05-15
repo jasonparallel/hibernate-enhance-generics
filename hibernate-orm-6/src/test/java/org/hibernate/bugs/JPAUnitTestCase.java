@@ -37,7 +37,6 @@ class JPAUnitTestCase {
 
 
         Actor actor = new Actor();
-        actor.setId(7L);
         ActorAka actorAka = new ActorAka();
         actor.setActorAkas(List.of(actorAka));
 
